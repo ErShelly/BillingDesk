@@ -2,14 +2,11 @@ package com.tw.billingdesk;
 
 import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class BillingDeskTest {
     @Test
-    public void generateReceiptForInput1(){
+    public void generateReceiptForInput1() {
         BillingDesk billingDesk = new BillingDesk();
         StoreItem book = billingDesk.addToCart(ItemType.Book, "Book", 12.49, 1, false);
         assertEquals(12.49, billingDesk.formatDouble(book.price + book.tax));
@@ -25,7 +22,7 @@ class BillingDeskTest {
     }
 
     @Test
-    public void generateReceiptForInput2(){
+    public void generateReceiptForInput2() {
         BillingDesk billingDesk = new BillingDesk();
         StoreItem importedChocolatesBox = billingDesk.addToCart(ItemType.Food, "imported box of chocolates", 10.00, 1, true);
         assertEquals(10.50, billingDesk.formatDouble(importedChocolatesBox.price + importedChocolatesBox.tax));
@@ -38,7 +35,7 @@ class BillingDeskTest {
     }
 
     @Test
-    public void generateReceiptForInput3(){
+    public void generateReceiptForInput3() {
         BillingDesk billingDesk = new BillingDesk();
         StoreItem importedPerfume = billingDesk.addToCart(ItemType.Miscellaneous, "imported bottle of perfume", 27.99, 1, true);
         assertEquals(32.19, billingDesk.formatDouble(importedPerfume.price + importedPerfume.tax));

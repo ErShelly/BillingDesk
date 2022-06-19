@@ -7,9 +7,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class BillingDesk {
-
     DecimalFormat decimalFormat = new DecimalFormat("0.00");
-
     private SalesTax salesTax = new StoreItemTaxCalculator();
     ArrayList<StoreItem> items = new ArrayList<StoreItem>();
 
@@ -49,7 +47,7 @@ public class BillingDesk {
         return totalTax;
     }
 
-    public double formatDouble(double value){
+    public double formatDouble(double value) {
         return Double.valueOf(decimalFormat.format(value));
     }
 }
