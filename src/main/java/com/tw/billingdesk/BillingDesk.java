@@ -1,18 +1,20 @@
 package com.tw.billingdesk;
 
-import java.lang.reflect.Array;
+import com.tw.billingdesk.salestax.SalesTax;
+import com.tw.billingdesk.salestax.StoreItemTaxCalculation;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List;
 
 public class BillingDesk {
 
     DecimalFormat decimalFormat = new DecimalFormat("0.00");
-    private static final double ROUND_OFF = 0.05;
+
+    private SalesTax salesTax = new StoreItemTaxCalculation();
     ArrayList<StoreItem> items = new ArrayList<StoreItem>();
     public void addToCart(ItemType itemType, String name, double price, int quantity, Boolean isImported) {
-        double calculatedTax = itemType.calculateTax(price, isImported);
-        StoreItem item = new StoreItem(itemType, name , price, quantity, isImported, calculatedTax) ;
+        double tax = salesTax.calculateTax(price,itemType.getBasicTax(), isImported);
+        StoreItem item = new StoreItem(itemType, name , price, quantity, isImported, tax) ;
         items.add(item);
     }
 

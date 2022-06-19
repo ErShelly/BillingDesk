@@ -1,5 +1,5 @@
-package com.tw.billingdesk.taxcalculation;
+package com.tw.billingdesk.salestax;
 
-public interface TaxCalculation {
+public interface SalesTax {
     public double calculateTax(double price, double tax, boolean isImported);
 }

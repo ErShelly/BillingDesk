@@ -1,8 +1,6 @@
-package com.tw.billingdesk.taxcalculation;
+package com.tw.billingdesk.salestax;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
-public class StoreItemTaxConstants {
+public class StoreItemConstants {
     public static double BOOK_TAX = 0d;
     public static double FOOD_TAX = 0d;
     public static double MEDICAL_TAX = 0d;
