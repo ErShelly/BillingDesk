@@ -13,7 +13,7 @@ public class StoreItemTaxCalculation implements SalesTax {
         return Double.valueOf(decimalFormat.format(totalTax));
     }
 
-    private double roundOff(double value){
-        return (value * ROUND_OFF)/ROUND_OFF;
+    private double roundOff(double value) {
+        return (int) (value / ROUND_OFF + 0.5) * 0.05;
     }
 }
