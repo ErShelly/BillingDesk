@@ -1,7 +1,7 @@
 package com.tw.billingdesk;
 
 import com.tw.billingdesk.salestax.SalesTax;
-import com.tw.billingdesk.salestax.StoreItemTaxCalculation;
+import com.tw.billingdesk.salestax.StoreItemTaxCalculator;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ public class BillingDesk {
 
     DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
-    private SalesTax salesTax = new StoreItemTaxCalculation();
+    private SalesTax salesTax = new StoreItemTaxCalculator();
     ArrayList<StoreItem> items = new ArrayList<StoreItem>();
 
     public StoreItem addToCart(ItemType itemType, String name, double price, int quantity, Boolean isImported) {

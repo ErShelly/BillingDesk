@@ -2,7 +2,7 @@ package com.tw.billingdesk.salestax;
 
 import java.text.DecimalFormat;
 
-public class StoreItemTaxCalculation implements SalesTax {
+public class StoreItemTaxCalculator implements SalesTax {
     DecimalFormat decimalFormat = new DecimalFormat("0.00");
     private final double ROUND_OFF = 0.05;
 
