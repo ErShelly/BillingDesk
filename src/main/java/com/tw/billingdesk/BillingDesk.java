@@ -12,20 +12,28 @@ public class BillingDesk {
 
     private SalesTax salesTax = new StoreItemTaxCalculation();
     ArrayList<StoreItem> items = new ArrayList<StoreItem>();
+
     public void addToCart(ItemType itemType, String name, double price, int quantity, Boolean isImported) {
-        double tax = salesTax.calculateTax(price,itemType.getBasicTax(), isImported);
-        StoreItem item = new StoreItem(itemType, name , price, quantity, isImported, tax) ;
+        double tax = salesTax.calculateTax(price, itemType.getBasicTax(), isImported);
+        StoreItem item = new StoreItem(itemType, name, price, quantity, isImported, tax);
         items.add(item);
     }
 
     public void generateReceipt() {
-        double totalPrice = Double.valueOf(decimalFormat.format(calculateTotalPrice()));
+        String receipt = "";
+        for (StoreItem item : items) {
+            receipt += item.quantity + " " + item.name + ": " + (item.price + item.tax) + "\n";
+        }
         double totalSalesTax = Double.valueOf(decimalFormat.format(calculateTotalSalesTax()));
+        double totalAmount = Double.valueOf(decimalFormat.format(calculateTotalAmount()));
+
+        receipt += "Sales Taxes: " + totalSalesTax + "\n";
+        receipt += "Total: " + totalAmount;
     }
 
-    private double calculateTotalPrice() {
+    private double calculateTotalAmount() {
         double totalPrice = 0d;
-        for (StoreItem item: items) {
+        for (StoreItem item : items) {
             totalPrice += item.quantity * (item.price + item.tax);
         }
         return totalPrice;
@@ -33,7 +41,7 @@ public class BillingDesk {
 
     private double calculateTotalSalesTax() {
         double totalTax = 0d;
-        for (StoreItem item: items) {
+        for (StoreItem item : items) {
             totalTax += item.quantity * item.tax;
         }
         return totalTax;
