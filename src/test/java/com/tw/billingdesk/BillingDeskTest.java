@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BillingDeskTest {
     @Test
-    public void generateReceiptForInput1() {
+    public void testToGenerateReceiptForBookMusicCdAndChocolateBar() {
         BillingDesk billingDesk = new BillingDesk();
 
         StoreItem book = billingDesk.addToCart(ItemType.Book, "Book", 12.49, 1, false);
@@ -21,7 +21,7 @@ class BillingDeskTest {
     }
 
     @Test
-    public void generateReceiptForInput2() {
+    public void testToGenerateReceiptForImportedChocolatesAndBottleOfPerfume() {
         BillingDesk billingDesk = new BillingDesk();
 
         StoreItem importedChocolatesBox = billingDesk.addToCart(ItemType.Food, "imported box of chocolates", 10.00, 1, true);
@@ -34,7 +34,7 @@ class BillingDeskTest {
     }
 
     @Test
-    public void generateReceiptForInput3() {
+    public void testToGenerateReceiptForImportedChocolatesPerfumeAndPerfumeHeadachePills() {
         BillingDesk billingDesk = new BillingDesk();
 
         StoreItem importedPerfume = billingDesk.addToCart(ItemType.Miscellaneous, "imported bottle of perfume", 27.99, 1, true);
