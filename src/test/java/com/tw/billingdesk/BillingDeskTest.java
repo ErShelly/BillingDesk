@@ -10,10 +10,11 @@ class BillingDeskTest {
         BillingDesk billingDesk = new BillingDesk();
 
         StoreItem book = new StoreItem(ItemType.Book, "Book", 12.49, 1, false, 0d);
-        billingDesk.addToCart(book);
         StoreItem musicCd = new StoreItem(ItemType.Miscellaneous, "music CD", 14.99d, 1, false, 0d);
-        billingDesk.addToCart(musicCd);
         StoreItem chocolateBar = new StoreItem(ItemType.Food, "chocolate bar", 0.85, 1, false, 0d);
+
+        billingDesk.addToCart(book);
+        billingDesk.addToCart(musicCd);
         billingDesk.addToCart(chocolateBar);
 
         assertEquals(12.49, billingDesk.formatDouble(book.price + book.tax));
@@ -27,9 +28,10 @@ class BillingDeskTest {
     public void testToGenerateReceiptForImportedChocolatesAndBottleOfPerfume() {
         BillingDesk billingDesk = new BillingDesk();
 
-        StoreItem importedChocolatesBox = new StoreItem(ItemType.Food, "imported box of chocolates", 10.00, 1, true,0d);
-        billingDesk.addToCart(importedChocolatesBox);
+        StoreItem importedChocolatesBox = new StoreItem(ItemType.Food, "imported box of chocolates", 10.00, 1, true, 0d);
         StoreItem importedPerfume = new StoreItem(ItemType.Miscellaneous, "imported bottle of perfume", 47.50, 1, true, 0d);
+
+        billingDesk.addToCart(importedChocolatesBox);
         billingDesk.addToCart(importedPerfume);
 
         assertEquals(10.50, billingDesk.formatDouble(importedChocolatesBox.price + importedChocolatesBox.tax));
@@ -43,12 +45,13 @@ class BillingDeskTest {
         BillingDesk billingDesk = new BillingDesk();
 
         StoreItem importedPerfume = new StoreItem(ItemType.Miscellaneous, "imported bottle of perfume", 27.99, 1, true, 0d);
-        billingDesk.addToCart(importedPerfume);
         StoreItem perfume = new StoreItem(ItemType.Miscellaneous, "bottle of perfume", 18.99, 1, false, 0d);
-        billingDesk.addToCart(perfume);
         StoreItem headachePill = new StoreItem(ItemType.Medical, "packet of headache pills", 9.75, 1, false, 0d);
-        billingDesk.addToCart(headachePill);
         StoreItem importedChocolatesBox = new StoreItem(ItemType.Food, "imported box of chocolates", 11.25, 1, true, 0d);
+
+        billingDesk.addToCart(importedPerfume);
+        billingDesk.addToCart(perfume);
+        billingDesk.addToCart(headachePill);
         billingDesk.addToCart(importedChocolatesBox);
 
         assertEquals(32.19, billingDesk.formatDouble(importedPerfume.price + importedPerfume.tax));
