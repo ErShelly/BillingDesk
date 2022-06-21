@@ -17,11 +17,11 @@ public class BillingDesk {
     public void generateReceipt() {
         String receipt = "";
         for (StoreItem item : items) {
-            double amount = Double.valueOf(decimalFormat.format(item.price + item.tax));
+            double amount = formatDouble(item.price + item.tax);
             receipt += item.quantity + " " + item.name + ": " + amount + "\n";
         }
-        double totalSalesTax = Double.valueOf(decimalFormat.format(calculateTotalSalesTax()));
-        double totalAmount = Double.valueOf(decimalFormat.format(calculateTotalAmount()));
+        double totalSalesTax = formatDouble(calculateTotalSalesTax());
+        double totalAmount = formatDouble(calculateTotalAmount());
 
         receipt += "Sales Taxes: " + totalSalesTax + "\n";
         receipt += "Total: " + totalAmount;
