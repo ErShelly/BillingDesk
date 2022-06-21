@@ -39,6 +39,7 @@ class BillingDeskTest {
         assertEquals(54.65, billingDesk.formatDouble(importedPerfume.price + importedPerfume.tax));
         assertEquals(7.65, billingDesk.formatDouble(billingDesk.calculateTotalSalesTax()));
         assertEquals(65.15, billingDesk.formatDouble(billingDesk.calculateTotalAmount()));
+        billingDesk.generateReceipt();
     }
 
     @Test
@@ -61,5 +62,6 @@ class BillingDeskTest {
         assertEquals(11.85, billingDesk.formatDouble(importedChocolatesBox.price + importedChocolatesBox.tax));
         assertEquals(6.70, billingDesk.formatDouble(billingDesk.calculateTotalSalesTax()));
         assertEquals(74.68, billingDesk.formatDouble(billingDesk.calculateTotalAmount()));
+        billingDesk.generateReceipt();
     }
 }

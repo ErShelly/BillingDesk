@@ -25,6 +25,7 @@ public class BillingDesk {
 
         receipt += "Sales Taxes: " + totalSalesTax + "\n";
         receipt += "Total: " + totalAmount;
+        System.out.println(receipt);
     }
 
     public double calculateTotalAmount() {
