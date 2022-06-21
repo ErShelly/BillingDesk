@@ -16,4 +16,8 @@ public class StoreItem {
         this.isImported = isImported;
         this.tax = tax;
     }
+
+    public static StoreItem createStoreItem(ItemType type, String name, double price, int quantity, Boolean isImported, double tax){
+        return new StoreItem(type, name, price, quantity, isImported, tax);
+    }
 }
