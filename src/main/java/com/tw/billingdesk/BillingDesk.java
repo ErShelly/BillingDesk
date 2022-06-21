@@ -15,16 +15,16 @@ public class BillingDesk {
     }
 
     public void generateReceipt() {
-        String receipt = "";
+        StringBuilder receipt = new StringBuilder();
         for (StoreItem item : items) {
             double amount = formatDouble(item.price + item.tax);
-            receipt += item.quantity + " " + item.name + ": " + amount + "\n";
+            receipt.append(item.quantity).append(" ").append(item.name).append(": ").append(amount).append("\n");
         }
         double totalSalesTax = formatDouble(calculateTotalSalesTax());
         double totalAmount = formatDouble(calculateTotalAmount());
 
-        receipt += "Sales Taxes: " + totalSalesTax + "\n";
-        receipt += "Total: " + totalAmount;
+        receipt.append("Sales Taxes: ").append(totalSalesTax).append("\n");
+        receipt.append("Total: ").append(totalAmount);
         System.out.println(receipt);
     }
 
@@ -45,6 +45,6 @@ public class BillingDesk {
     }
 
     public double formatDouble(double value) {
-        return Double.valueOf(decimalFormat.format(value));
+        return Double.parseDouble(decimalFormat.format(value));
     }
 }

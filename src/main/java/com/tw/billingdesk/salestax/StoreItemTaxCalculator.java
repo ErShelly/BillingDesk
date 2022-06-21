@@ -10,7 +10,7 @@ public class StoreItemTaxCalculator implements SalesTax {
     public double calculateTax(double price, double tax, boolean isImported) {
         double totalTax = price * tax + (isImported ? price * StoreItemConstants.IMPORT_DUTY_TAX : 0);
         totalTax = roundOff(totalTax);
-        return Double.valueOf(decimalFormat.format(totalTax));
+        return Double.parseDouble(decimalFormat.format(totalTax));
     }
 
     private double roundOff(double value) {
