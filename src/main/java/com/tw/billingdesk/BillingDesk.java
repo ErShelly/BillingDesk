@@ -8,11 +8,9 @@ import java.util.ArrayList;
 
 public class BillingDesk {
     DecimalFormat decimalFormat = new DecimalFormat("0.00");
-    private SalesTax salesTax = new StoreItemTaxCalculator();
     ArrayList<StoreItem> items = new ArrayList<StoreItem>();
 
     public void addToCart(StoreItem storeItem) {
-        storeItem.tax = salesTax.calculateTax(storeItem.price, storeItem.type.getBasicTax(), storeItem.isImported);
         items.add(storeItem);
     }
 
