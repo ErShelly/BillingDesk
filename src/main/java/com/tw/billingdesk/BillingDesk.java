@@ -11,11 +11,9 @@ public class BillingDesk {
     private SalesTax salesTax = new StoreItemTaxCalculator();
     ArrayList<StoreItem> items = new ArrayList<StoreItem>();
 
-    public StoreItem addToCart(ItemType itemType, String name, double price, int quantity, Boolean isImported) {
-        double tax = salesTax.calculateTax(price, itemType.getBasicTax(), isImported);
-        StoreItem item = new StoreItem(itemType, name, price, quantity, isImported, tax);
-        items.add(item);
-        return item;
+    public void addToCart(StoreItem storeItem) {
+        storeItem.tax = salesTax.calculateTax(storeItem.price, storeItem.type.getBasicTax(), storeItem.isImported);
+        items.add(storeItem);
     }
 
     public void generateReceipt() {
