@@ -1,14 +1,11 @@
 package com.tw.billingdesk;
 
-import com.tw.billingdesk.salestax.SalesTax;
-import com.tw.billingdesk.salestax.StoreItemTaxCalculator;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class BillingDesk {
     DecimalFormat decimalFormat = new DecimalFormat("0.00");
-    ArrayList<StoreItem> items = new ArrayList<StoreItem>();
+    ArrayList<StoreItem> items = new ArrayList<>();
 
     public void addToCart(StoreItem storeItem) {
         items.add(storeItem);
