@@ -21,8 +21,8 @@ public class StoreItem {
         this.tax = tax;
     }
 
-    public static StoreItem createStoreItem(ItemType type, String name, double price, int quantity, Boolean isImported, double tax){
-        tax = salesTax.calculateTax(price, type.getBasicTax(), isImported);
+    public static StoreItem createStoreItem(ItemType type, String name, double price, int quantity, Boolean isImported){
+        double tax = salesTax.calculateTax(price, type.getBasicTax(), isImported);
         return new StoreItem(type, name, price, quantity, isImported, tax);
     }
 }

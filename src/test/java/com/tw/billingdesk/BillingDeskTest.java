@@ -9,9 +9,9 @@ class BillingDeskTest {
     public void testToGenerateReceiptForBookMusicCdAndChocolateBar() {
         BillingDesk billingDesk = new BillingDesk();
 
-        StoreItem book = StoreItem.createStoreItem(ItemType.Book, "Book", 12.49, 1, false, 0d);
-        StoreItem musicCd = StoreItem.createStoreItem(ItemType.Miscellaneous, "music CD", 14.99d, 1, false, 0d);
-        StoreItem chocolateBar = StoreItem.createStoreItem(ItemType.Food, "chocolate bar", 0.85, 1, false, 0d);
+        StoreItem book = StoreItem.createStoreItem(ItemType.Book, "Book", 12.49, 1, false);
+        StoreItem musicCd = StoreItem.createStoreItem(ItemType.Miscellaneous, "music CD", 14.99d, 1, false);
+        StoreItem chocolateBar = StoreItem.createStoreItem(ItemType.Food, "chocolate bar", 0.85, 1, false);
 
         billingDesk.addToCart(book);
         billingDesk.addToCart(musicCd);
@@ -29,8 +29,8 @@ class BillingDeskTest {
     public void testToGenerateReceiptForImportedChocolatesAndBottleOfPerfume() {
         BillingDesk billingDesk = new BillingDesk();
 
-        StoreItem importedChocolatesBox = StoreItem.createStoreItem(ItemType.Food, "imported box of chocolates", 10.00, 1, true, 0d);
-        StoreItem importedPerfume = StoreItem.createStoreItem(ItemType.Miscellaneous, "imported bottle of perfume", 47.50, 1, true, 0d);
+        StoreItem importedChocolatesBox = StoreItem.createStoreItem(ItemType.Food, "imported box of chocolates", 10.00, 1, true);
+        StoreItem importedPerfume = StoreItem.createStoreItem(ItemType.Miscellaneous, "imported bottle of perfume", 47.50, 1, true);
 
         billingDesk.addToCart(importedChocolatesBox);
         billingDesk.addToCart(importedPerfume);
@@ -46,10 +46,10 @@ class BillingDeskTest {
     public void testToGenerateReceiptForImportedChocolatesPerfumeAndPerfumeHeadachePills() {
         BillingDesk billingDesk = new BillingDesk();
 
-        StoreItem importedPerfume = StoreItem.createStoreItem(ItemType.Miscellaneous, "imported bottle of perfume", 27.99, 1, true, 0d);
-        StoreItem perfume = StoreItem.createStoreItem(ItemType.Miscellaneous, "bottle of perfume", 18.99, 1, false, 0d);
-        StoreItem headachePill = StoreItem.createStoreItem(ItemType.Medical, "packet of headache pills", 9.75, 1, false, 0d);
-        StoreItem importedChocolatesBox = StoreItem.createStoreItem(ItemType.Food, "imported box of chocolates", 11.25, 1, true, 0d);
+        StoreItem importedPerfume = StoreItem.createStoreItem(ItemType.Miscellaneous, "imported bottle of perfume", 27.99, 1, true);
+        StoreItem perfume = StoreItem.createStoreItem(ItemType.Miscellaneous, "bottle of perfume", 18.99, 1, false);
+        StoreItem headachePill = StoreItem.createStoreItem(ItemType.Medical, "packet of headache pills", 9.75, 1, false);
+        StoreItem importedChocolatesBox = StoreItem.createStoreItem(ItemType.Food, "imported box of chocolates", 11.25, 1, true);
 
         billingDesk.addToCart(importedPerfume);
         billingDesk.addToCart(perfume);
