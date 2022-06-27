@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class BillingDesk {
     DecimalFormat decimalFormat = new DecimalFormat("0.00");
-    ArrayList<StoreItem> items = new ArrayList<>();
+    private ArrayList<StoreItem> items = new ArrayList<>();
 
     public void addToCart(StoreItem storeItem) {
         items.add(storeItem);

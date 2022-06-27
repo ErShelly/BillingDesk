@@ -9,12 +9,11 @@ public class StoreItem {
     public int quantity;
     public Boolean isImported;
     public double tax;
-
     public double totalTax;
     public double totalAmount;
 
 
-    public StoreItem(ItemType type, String name, double price, int quantity, Boolean isImported, double tax, double totalTax, double totalAmount) {
+    private StoreItem(ItemType type, String name, double price, int quantity, Boolean isImported, double tax, double totalTax, double totalAmount) {
         this.type = type;
         this.name = name;
         this.price = price;
