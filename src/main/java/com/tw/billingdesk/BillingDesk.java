@@ -15,7 +15,7 @@ public class BillingDesk {
         StringBuilder receipt = new StringBuilder();
 
         for (StoreItem item : items) {
-            double amount = formatDouble(item.price + item.tax);
+            double amount = formatDouble(item.totalAmount);
             receipt.append(item.quantity).append(" ").append(item.name).append(": ").append(amount).append("\n");
         }
         double totalSalesTax = formatDouble(calculateTotalSalesTax());
@@ -29,7 +29,7 @@ public class BillingDesk {
     public double calculateTotalAmount() {
         double totalPrice = 0d;
         for (StoreItem item : items) {
-            totalPrice += item.quantity * (item.price + item.tax);
+            totalPrice += item.totalAmount;
         }
         return totalPrice;
     }
@@ -37,7 +37,7 @@ public class BillingDesk {
     public double calculateTotalSalesTax() {
         double totalTax = 0d;
         for (StoreItem item : items) {
-            totalTax += item.quantity * item.tax;
+            totalTax += item.totalTax;
         }
         return totalTax;
     }
