@@ -2,13 +2,12 @@ package com.tw.billingdesk.salestax;
 
 import java.text.DecimalFormat;
 
-public class StoreItemTaxCalculator implements SalesTax {
+public class SalesTaxCalculator {
     DecimalFormat decimalFormat = new DecimalFormat("0.00");
     private final double ROUND_OFF = 0.05;
 
-    @Override
     public double calculateTax(double price, double tax, boolean isImported) {
-        double totalTax = price * tax + (isImported ? price * StoreItemConstants.IMPORT_DUTY_TAX : 0);
+        double totalTax = price * tax + (isImported ? price * SalesTaxConstants.IMPORT_DUTY_TAX : 0);
         totalTax = roundOff(totalTax);
         return Double.parseDouble(decimalFormat.format(totalTax));
     }

@@ -1,6 +1,6 @@
 package com.tw.billingdesk.salestax;
 
-public class StoreItemConstants {
+public class SalesTaxConstants {
     public static final double BOOK_TAX = 0d;
     public static final double FOOD_TAX = 0d;
     public static final double MEDICAL_TAX = 0d;

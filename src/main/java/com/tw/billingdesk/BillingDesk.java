@@ -13,6 +13,7 @@ public class BillingDesk {
 
     public void generateReceipt() {
         StringBuilder receipt = new StringBuilder();
+
         for (StoreItem item : items) {
             double amount = formatDouble(item.price + item.tax);
             receipt.append(item.quantity).append(" ").append(item.name).append(": ").append(amount).append("\n");
