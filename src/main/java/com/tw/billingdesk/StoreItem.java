@@ -12,25 +12,17 @@ public class StoreItem {
     public double totalTax;
     public double totalAmount;
 
+    SalesTaxCalculator salesTaxCalculator = new SalesTaxCalculator();
 
-    private StoreItem(ItemType type, String name, double price, int quantity, Boolean isImported, double tax, double totalTax, double totalAmount) {
+    public StoreItem(ItemType type, String name, double price, int quantity, Boolean isImported) {
         this.type = type;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.isImported = isImported;
-        this.tax = tax;
-        this.totalTax = totalTax;
-        this.totalAmount = totalAmount;
-    }
 
-    public static StoreItem createStoreItem(ItemType type, String name, double price, int quantity, Boolean isImported) {
-        SalesTaxCalculator salesTaxCalculator = new SalesTaxCalculator();
-
-        double tax = salesTaxCalculator.calculateTax(price, type.getBasicTax(), isImported);
-        double totalAmount = quantity * (price + tax);
-        double totalTax = quantity * tax;
-
-        return new StoreItem(type, name, price, quantity, isImported, tax, totalTax, totalAmount);
+        this.tax = salesTaxCalculator.calculateTax(price, type.getBasicTax(), isImported);
+        this.totalAmount = quantity * (price + this.tax);
+        this.totalTax = quantity * this.tax;
     }
 }
